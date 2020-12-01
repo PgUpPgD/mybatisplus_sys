@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/practise?serverTimezone=UTC
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://localhost:3306/practise?serverTimezone=CTT&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis-plus:   #其他配置见笔记或官网
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+  mapper-locations: classpath*:mapper/*.xml
+  # 配置实体类包地址
+  type-aliases-package: com.feri.mybatisplus_sys.entity
+  # 驼峰转下划线
+  configuration:
+    map-underscore-to-camel-case: true
+
+
